@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+ 
+{%load humanize%}
+{% block title %} | Welcome {% endblock %}
+{% block content %}
+    <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{%url 'index'%}">
+              <i class="fas fa-home"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item active">Predict Price</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+<div class="col-md-6 offset-md-3 mt-5">
+ 
+  <form action="{% url 'predict' %}" method="POST">
+    {% csrf_token %}
+ <!--    <div class="form-group" >
+      <label>Location</label>
+      <input name="location" type="text" class="form-control"   placeholder="Enter Location">
+    </div> -->
+    <div class="form-group">
+   
+                  <label >Location</label>
+                  <!-- <input type="text" name="city" class="form-control" placeholder="City"> -->
+                 <select name="location" class="form-control"  required=True>
+                    <option selected="true" value="others">Select location </option>
+                    {%for values in locations %}
+                     <option value="{{values}}">{{values}}</option>
+                    {%endfor%}
+                    
+                  </select>
+                </div>
+    <div class="form-group">
+      <label>Bedroom </label>
+      <input name="bhk" type="number" value="{{value}}" class="form-control"   placeholder="Enter Number of bedrooms" required=True>
+    </div>
+    <div class="form-group">
+      <label>Bathroom</label>
+      <input name="bath"  value="{{value}}" type="number" class="form-control"   placeholder="Enter Number of Bathroom" required=True>
+    </div>
+    <div class="form-group">
+      <label>Size</label>
+      <input  value="{{value}}" name="total_sqft" type="number" class="form-control"   placeholder="Enter Size" required=True>
+    </div>
+
+    <br>
+<center>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </center>
+  <br>
+
+    {% if price %}
+    <div>
+      {{price}}
+    </div>
+  {% endif %}
+
+</form>
+</div>
+{%endblock%}

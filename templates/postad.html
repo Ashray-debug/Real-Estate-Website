@@ -1,0 +1,133 @@
+{%extends 'base.html'%}
+
+
+
+{% load static %}
+
+
+{% block content %}
+
+
+    <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{%url 'index'%}">
+              <i class="fas fa-home"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item active">Post Ad</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+     <div class="col-md-6 offset-md-3 mt-5">
+         <form accept-charset="UTF-8" action="{% url 'dashboard'%}" method="POST" enctype="multipart/form-data">
+         	
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName">House No.</label>
+            <input type="text" name="address" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          <div class="form-group">
+            <!-- <label for="exampleInputName">Location</label> -->
+             <label >Location</label>
+                  <!-- <input type="text" name="city" class="form-control" placeholder="City"> -->
+                 <select name="city" class="form-control"  required=True>
+                    <option selected="true" value="others">Select location </option>
+                    {%for values in locations %}
+                     <option value="{{values}}">{{values}}</option>
+                    {%endfor%}
+                    
+                  </select>
+            <!-- <input type="text" name="city" class="form-control" id="exampleInputName"  required="required"> -->
+          </div>
+          <div class="form-group">
+            <label  >City</label>
+                  <select name="state" class="form-control">
+                    <option selected="true" values="">Select City</option>
+                    {%for key,value in state_choices.items %}
+                     <option value="{{key}}">{{value}}</option>
+                    {%endfor%}
+                    
+                  </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Zipcode</label>
+            <input type="number" name="zipcode" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Description</label>
+            <input type="text" name="description" class="form-control" id="exampleInputName" required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Price</label>
+            <input type="number" name="price" class="form-control" id="exampleInputName" required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">BedRoom</label>
+            <input type="number" name="bedrooms" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Bathrooms</label>
+            <input type="number" name="bathrooms" class="form-control" id="exampleInputName"required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Garage</label>
+            <input type="number" name="garage" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Living Area (sqft)</label>
+            <input type="number" name="sqft" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName">Lot Size (sqft)</label>
+            <input type="number" name="lot_size" class="form-control" id="exampleInputName"  required="required">
+          </div>
+          
+          <hr>
+          <div class="form-group mt-3">
+            <label class="mr-2">Main Photo</label>
+            <input id="photo_main" type="file" name="photo_main">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 1   </label>
+            <input id="photo_1" type="file" name="photo_1">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 2   </label>
+            <input id="photo_2"  type="file" name="photo_2">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 3   </label>
+            <input id="photo_3" type="file" name="photo_3">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 4   </label>
+            <input id="photo_4" type="file" name="photo_4">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 5   </label>
+            <input id="photo_5" type="file" name="photo_5">
+          </div>
+          <div class="form-group mt-3">
+            <label class="mr-2">Photo 6   </label>
+            <input id="photo_6" type="file" name="photo_6">
+          </div>
+          <label for="start">List_Date:</label>
+
+<input type="date" id="start" name="list_date"
+       >
+
+          <hr>
+          <br>
+          <center>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </center>
+        <br>
+        </form>
+    </div> 
+    
+    
+
+{%endblock%}
