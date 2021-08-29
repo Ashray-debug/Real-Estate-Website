@@ -5,7 +5,7 @@
 1. Get the predicted price of the property.
 2. Inquire about the property.
 3. Instant Email to the seller.
-4. Serch feature to find the desired property.
+4. Search feature to find the desired property.
 
 
 #### Some Screen Shots of the APP
