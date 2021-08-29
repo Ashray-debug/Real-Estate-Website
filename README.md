@@ -36,5 +36,5 @@ About Page:
 #### Backend Framework used:
 * Django
 
-#### Backend Framework used:
+#### Database used:
 * PostgreSQL
