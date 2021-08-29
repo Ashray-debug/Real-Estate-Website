@@ -9,9 +9,9 @@
 
 
 #### Some Screen Shots of the APP
-Predict Price
+Predict Price:
 
-: <img width="960" alt="Capture" src="https://user-images.githubusercontent.com/54759911/131244799-94a91c57-077b-4eec-8842-a32e8283ab9d.PNG">
+ <img width="960" alt="Capture" src="https://user-images.githubusercontent.com/54759911/131244799-94a91c57-077b-4eec-8842-a32e8283ab9d.PNG">
 
 Search Feature:
 
